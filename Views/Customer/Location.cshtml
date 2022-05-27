@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CMS.Models.Location>
+
+<a asp-action="Index" asp-controller="Customer">Back to All Customers</a>
+
+
+<h2>Customer Locations</h2>
+<ol>
+    @foreach (var loc in Model)
+    {
+        <li>
+            <a asp-action="CustomerList" asp-controller="Customer" asp-route-id="@loc.locId">@loc.locName</a>
+        </li>
+    }
+</ol>
+

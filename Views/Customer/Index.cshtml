@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CMS.Models.Customer>
+
+
+<style type="text/css">
+    table {
+        width: 750px;
+        border: double;
+    }
+
+    th {
+        width: 100px;
+    }
+
+    td {
+        border: 1px solid gray;
+        padding: 2px;
+        margin: 2px;
+        width: 100px;
+    }
+
+    input {
+        width: 125px;
+    }
+</style>
+
+<h1>Customer Management System</h1>
+
+<p>
+    @Html.ActionLink("Create New Employee", "Create")
+</p>
+<a asp-action="Location" asp-controller="Customer">Location Wise Customer</a>
+
+
+@Html.Raw(TempData["insert"])
+@Html.Raw(TempData["update"])
+@Html.Raw(TempData["delete"])
+
+<table border-color: #96D4D4>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.cusId</td>
+            <td>@emp.cusName</td>
+            <td>@emp.cusAdd</td>
+            <td>@emp.cusGender</td>
+            <td>@emp.cusAge</td>
+            <td> <img src="~/images/@emp.cusImage" width="80" height="80"></td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = emp.cusId })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = emp.cusId })</td>
+            <td>@Html.ActionLink("Details", "Details", new { id = emp.cusId })</td>
+        </tr>
+    }
+</table>

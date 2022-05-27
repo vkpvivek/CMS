@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CMS.Models.Customer>
+
+<a asp-action="Location" asp-controller="Customer">Back to Customer Location</a>
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        @if (Model.Count() == 0)
+        {
+            <h1>No Customer Found at this Location !!</h1>
+        }
+        else
+        {
+            <table class="table table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+                @foreach (var cust in Model)
+                {
+            <tr>
+                <td>@cust.cusName</td>
+                @*<td><a asp-action="CustomerDetails" asp-controller="Customer" asp-route-id="@cust.cusId">View Detail</a></td>*@
+                <td>@Html.ActionLink("Details", "Details", new { id = cust.cusId })</td>
+            </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
+

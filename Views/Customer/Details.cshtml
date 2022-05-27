@@ -1,0 +1,33 @@
+﻿@model CMS.Models.Customer
+
+
+<h2>@Html.ActionLink("Back to Employee Page", "Index")</h2>
+<table border="3">
+    <tr>
+        <td>Name</td>
+        <td>@Model.cusName</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>@Model.cusGender</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>@Model.cusAge</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>@Model.cusAdd</td>
+    </tr>
+    <
+    <tr>
+        <td>Is Active</td>
+        <td>@Model.IsActive</td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td>
+            <img src="~/images/@Model.cusImage" width="80" height="80" />
+        </td>
+    </tr>
+</table>

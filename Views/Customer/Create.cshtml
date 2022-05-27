@@ -1,0 +1,38 @@
+﻿@model CMS.Models.Customer
+
+<h2>@Html.ActionLink("Back to Employee Page", "Index")</h2>
+
+<form method="post" asp-controller="Customer" asp-action="Create" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" asp-for="@Model.cusName" /></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><input type="text" asp-for="@Model.cusAdd" /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" asp-for="@Model.cusGender" value="Male" /> Male
+                <input type="radio" asp-for="@Model.cusGender" value="Female" /> Female
+            </td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" asp-for="@Model.cusAge" /></td>
+        </tr>
+        <tr>
+            <td>Is Active</td>
+            <td><input type="checkbox" asp-for="@Model.IsActive" /></td>
+        </tr>
+        <tr>
+            <td>Upload Image</td>
+            <td><input type="file" asp-for="@Model.cusImageFile" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create" /></td>
+        </tr>
+    </table>
+</form>
